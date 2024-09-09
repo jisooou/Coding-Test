@@ -19,6 +19,7 @@ class Solution {
             list.add(last);
         }
         
+//         크지 않다면 > 테스트케이스12 
         if(num_list[num_list.length-1] <= num_list[num_list.length-2]){
             int last = (num_list[num_list.length-1])*2;
 //             ArrayList 안에 (마지막 원소 * 2) 값 넣음
