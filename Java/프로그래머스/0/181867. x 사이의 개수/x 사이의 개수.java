@@ -10,7 +10,8 @@ class Solution {
         for(int i = 0; i < find.length; i++){
             answer[i] = find[i].length();
         }
-         
+    
         return answer;
+        
     }
 }
