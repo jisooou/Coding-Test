@@ -1,5 +1,6 @@
 class Solution {
     public long solution(int a, int b) {
+        //int sum > 결괏값X
         long sum = 0;
         
         if(a < b){
