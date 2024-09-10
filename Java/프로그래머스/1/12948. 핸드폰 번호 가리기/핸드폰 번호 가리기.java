@@ -1,3 +1,4 @@
+//substring 함수 사용
 class Solution {
     public String solution(String phone_number) {
         String answer = "";
