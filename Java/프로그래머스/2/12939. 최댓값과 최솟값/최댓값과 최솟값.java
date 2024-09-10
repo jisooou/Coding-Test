@@ -2,7 +2,7 @@ class Solution {
     public String solution(String s) {
         String answer = "";
         
-        //공백을 기준으로 split
+        //공백을 기준으로 split > 배열 만들기
         String[] array = s.split(" ");
         
         int min = Integer.MAX_VALUE;
