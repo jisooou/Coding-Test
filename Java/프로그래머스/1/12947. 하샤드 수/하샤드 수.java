@@ -1,3 +1,4 @@
+//숫자 > 문자열 > 숫자 변환 
 class Solution {
     public boolean solution(int x) {
         boolean answer = true;
