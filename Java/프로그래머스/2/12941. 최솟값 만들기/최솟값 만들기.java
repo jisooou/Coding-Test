@@ -5,9 +5,6 @@ class Solution
     public int solution(int []A, int []B)
     {
         
-        /*
-        1. 
-        */
         int sum = 0;
         
         Arrays.sort(A);
