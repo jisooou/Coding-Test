@@ -1,8 +1,9 @@
+//StringBuilder, StringBuffer
 import java.util.*;
 class Solution {
     public String solution(String s) {
         /*
-        1. 알파벳 역순으로 리턴
+        1. 알파벳 역순으로 리턴 > 소문자.대문자 구분 
         2. 대문자는 맨끝에 리턴 (대문자도 역순으로 리턴)
         */
         String answer = "";
@@ -16,7 +17,6 @@ class Solution {
                 }
             }
         }
-
         
         //대문자일 때
         for(char x = 'Z'; x >= 'A'; x--){
