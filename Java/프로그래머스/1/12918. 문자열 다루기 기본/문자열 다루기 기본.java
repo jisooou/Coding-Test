@@ -1,3 +1,4 @@
+//Character.isAlphabetic(), Character.isDigit()
 class Solution {
     public boolean solution(String s) {
         /*
@@ -5,7 +6,6 @@ class Solution {
         2. 알파벳인지 확인 > Character.isAlphabetic()
         3. 알파벳이 있을 때마다 count 한 후에
         4. 마지막 count 개수에 따라 true와 false를 리턴 
-            *숫자( Character.isDigit() )인지 알파벳인지 판단
         */
         boolean answer = true;
         boolean error = false;
