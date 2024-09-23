@@ -14,7 +14,7 @@ class Solution {
         for(int i = 0; i <= t.length() - pLength; i++){
             //예) substring(0, (0+3)3) > 314 
             compare = t.substring(i, i + pLength);
-            //compare이 문자열이므로 정수로 변경 
+            //compare이 문자열이므로 정수로 변경 > Long 타입 
             if(Long.parseLong(compare) <= Long.parseLong(p)){
                 count++; 
             }
