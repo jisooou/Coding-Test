@@ -6,13 +6,14 @@ class Solution {
         int max = 0; 
         
         for(int i = 1; i <= n && i <= m; i++){
+            //최대공약수 
             if(n % i == 0 && m % i == 0){
-                max = i; 
+                max = i;
             }
         }
-        answer[0] = max; //max
-        answer[1] = (n * m) / max; //min
-        
+        answer[0] = max; //최대공약수
+        //최소공배수 = 두수의곱 / 최대공약수
+        answer[1] = (n * m) / max; //최소공배수
         
         return answer;
     }
