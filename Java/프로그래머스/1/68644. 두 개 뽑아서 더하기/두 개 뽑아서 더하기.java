@@ -3,7 +3,7 @@ class Solution {
     public int[] solution(int[] numbers) {
         /*
             *for문을 2번 돌려서 합 구하기
-            *중복 없애기
+            *중복 없애기 - Set
         */
         Set<Integer> set = new HashSet<>();
         
