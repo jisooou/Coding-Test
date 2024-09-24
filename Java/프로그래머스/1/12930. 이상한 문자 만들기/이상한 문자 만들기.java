@@ -14,6 +14,7 @@ class Solution {
             if(array[i].equals(" ")){
                 index = 0;
             }
+            
             else if(index % 2 == 0){
                 array[i] = array[i].toUpperCase(); 
                 index++;
@@ -22,8 +23,6 @@ class Solution {
                 array[i] = array[i].toLowerCase();
                 index++;
             }
-                        
-            //index 값에 맞춰서 array에 정렬
             answer += array[i];
         }
         
