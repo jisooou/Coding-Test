@@ -1,25 +1,52 @@
 import java.util.*;
 class Solution {
     public String[] solution(String[] strings, int n) {
-         /*
-            각 단어의 n번째 문자를 기준으로 정렬 
-                > n을 문자열 앞에 추가 후 sort
-        */
-        String[] answer = new String[strings.length];
-        List<String> list = new ArrayList<>();
         
-        for(int i = 0; i < strings.length; i++){
-            //strings[i].charAt(n) > u, e, a 
-            list.add(strings[i].charAt(n) + strings[i]); 
+        for (int i = 0; i < strings.length - 1; i++) {
+            for (int j = i + 1; j < strings.length; j++) {
+                
+                //n번째 문자를 비교
+                if (strings[i].charAt(n) > strings[j].charAt(n)) {
+                    //정렬
+                    String temp = strings[i];
+                    strings[i] = strings[j];
+                    strings[j] = temp;
+                } 
+                //n번째 문자가 같을 경우, 문자열 전체를 비교하여 정렬
+                else if (strings[i].charAt(n) == strings[j].charAt(n)) {
+                    
+                    if (strings[i].compareTo(strings[j]) > 0) {
+                        String temp = strings[i];
+                        strings[i] = strings[j];
+                        strings[j] = temp;
+                    }
+                }
+            }
         }
-        
-        
-        Collections.sort(list); //acar, ebed, usun 
-        
-        for(int i = 0; i < list.size(); i++){
-            answer[i] = list.get(i).substring(1, list.get(i).length());
-        }
-        
-        return answer;
+
+        return strings; 
     }
 }
+
+
+
+//          /*
+//             각 단어의 n번째 문자를 기준으로 정렬 
+//                 > n을 문자열 앞에 추가 후 sort
+//         */
+//         String[] answer = new String[strings.length];
+//         List<String> list = new ArrayList<>();
+        
+//         for(int i = 0; i < strings.length; i++){
+//             //strings[i].charAt(n) > u, e, a 
+//             list.add(strings[i].charAt(n) + strings[i]); 
+//         }
+        
+        
+//         Collections.sort(list); //acar, ebed, usun 
+        
+//         for(int i = 0; i < list.size(); i++){
+//             answer[i] = list.get(i).substring(1, list.get(i).length());
+//         }
+        
+//         return answer;
