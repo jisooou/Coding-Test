@@ -1,3 +1,4 @@
+//아스키 코드, Character.compareTo() 메서드 
 import java.util.*;
 class Solution {
     public String[] solution(String[] strings, int n) {
@@ -12,10 +13,9 @@ class Solution {
                     strings[i] = strings[j];
                     strings[j] = temp;
                 } 
-                //n번째 문자가 같을 경우, 문자열 전체를 비교하여 정렬
                 else if (strings[i].charAt(n) == strings[j].charAt(n)) {
-                    
-                    if (strings[i].compareTo(strings[j]) > 0) {
+                    //예) abce가 abcd보다 앞에 오는 경우 > 다시 정렬 
+                    if(strings[i].compareTo(strings[j]) > 0){
                         String temp = strings[i];
                         strings[i] = strings[j];
                         strings[j] = temp;
@@ -27,7 +27,6 @@ class Solution {
         return strings; 
     }
 }
-
 
 
 //          /*
