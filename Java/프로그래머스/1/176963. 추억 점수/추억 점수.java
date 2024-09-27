@@ -3,7 +3,7 @@ class Solution {
         
         /*
         for문 3번 돌리면서 
-        photo 배열에 name 배열이 일치하는지 확인 
+        photo 배열에 name 배열이 얼마나 일치하는지 확인 
         일치하는 횟수만큼 yearning에서 합 구하기 
         */
         int[] answer = new int[photo.length];
