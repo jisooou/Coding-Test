@@ -1,6 +1,6 @@
 import sys
 
-sum = 0; 
+sum = 0
 
 X = int(sys.stdin.readline().rstrip())
 N = int(sys.stdin.readline().rstrip())
