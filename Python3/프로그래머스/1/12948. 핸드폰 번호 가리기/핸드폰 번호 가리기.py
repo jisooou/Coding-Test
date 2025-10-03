@@ -1,5 +1,4 @@
 def solution(phone_number):
-    star_count = len(phone_number)-4 #맨 뒤 4자리는 제외 
-    star_phone_number = "*" * star_count
-    answer = star_phone_number + phone_number[-4:]
+    phone_number_star = "*" * len(phone_number[:-4]) #0103333 -> *******
+    answer = phone_number_star + phone_number[-4:]
     return answer
