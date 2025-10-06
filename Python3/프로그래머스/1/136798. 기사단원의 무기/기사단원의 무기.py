@@ -1,3 +1,5 @@
+# 수행시간- O(n^2): 초과 -> O(n√n): 개선
+
 import math
 def solution(number, limit, power):
     # 1. 1부터 number까지 수를 돈다. 
