@@ -9,3 +9,4 @@ def solution(s):
         else:
             stack.append(ch)
     return 0 if stack else 1
+        
