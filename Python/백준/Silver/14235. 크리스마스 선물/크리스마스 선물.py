@@ -1,18 +1,18 @@
-import sys 
-import heapq 
+import sys
+import heapq
 
 input = sys.stdin.readline
 
 n = int(input())
-pq = []
+qp = []
 
 for _ in range(n):
     data = list(map(int, input().split()))
-    if(data[0] == 0):
-        if pq: 
-            print(-heapq.heappop(pq))
+    if (data[0]==0):
+        if qp:
+            print(-(heapq.heappop(qp)))
         else: 
             print(-1)
-    else: 
+    else:
         for x in data[1:]:
-            heapq.heappush(pq, -x)
+            heapq.heappush(qp, -x)
