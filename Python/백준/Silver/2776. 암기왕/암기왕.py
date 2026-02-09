@@ -1,15 +1,14 @@
 import sys
 input = sys.stdin.readline
 
-T = int(input())
+T = int(input()) 
 for _ in range(T):
     N = int(input())
-    info = set(map(int, input().split()))
+    answer = set(map(int, input().split()))
     M = int(input())
-    info_compare = list(map(int, input().split()))
-    
-    for i in info_compare:
-        if i in info: 
+    test = list(map(int, input().split()))
+    for i in test: 
+        if i in answer: 
             print(1)
-        else: 
+        else:
             print(0)
