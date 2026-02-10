@@ -1,23 +1,21 @@
 import sys
 input = sys.stdin.readline
 
-N = int(input()) #4
+N = int(input())
 budget = list(map(int, input().split()))
-M = int(input()) #485
+M = int(input())
 
 left = 0
 right = max(budget)
 answer = 0
-
-#left와 right를 움직여야 함
-while left <= right: 
+while left <= right:
+    total = 0
     mid = (left + right) // 2
-    sum = 0
     for i in budget: 
-        sum += min(i, mid)
-    if sum <= M:
+        total += min(i, mid)
+    if total <= M: 
         answer = mid
         left = mid + 1
     else: 
         right = mid - 1
-print(answer)        
+print(answer)
