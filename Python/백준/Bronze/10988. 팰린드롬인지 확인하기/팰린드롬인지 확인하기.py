@@ -1,7 +1,9 @@
-word = list(input())
-r_word = list(reversed(word))
+import sys
+input = sys.stdin.readline
 
-if word == r_word:
+S = input().strip()
+
+if S == S[::-1]:
     print(1)
 else:
     print(0)
