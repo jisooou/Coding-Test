@@ -5,7 +5,7 @@ dist = [list(map(int, input().split())) for _ in range(N)]
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
-def bfs(x, y, h, visited):
+def bfs(x, y, h):
     queue = deque()
     queue.append((x, y))
     visited[x][y] = True 
@@ -27,7 +27,7 @@ for h in range(max_h+1):
     for i in range(N):
         for j in range(N):
             if not visited[i][j] and dist[i][j] > h: 
-                bfs(i, j, h, visited)
+                bfs(i, j, h)
                 cnt += 1
     answer = max(answer, cnt)
 print(answer)
