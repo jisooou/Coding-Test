@@ -1,23 +1,22 @@
-n, c = map(int, input().split())
+N, C = map(int, input().split())
 nums = list(map(int, input().split()))
 
-freq = {}        
-first = {}       
+freq = {}
+first = {}
 
-for i in range(n):
+for i in range(N):
     num = nums[i]
-    freq[num] = freq.get(num, 0) + 1
     
-    if num not in first:
+    if num not in freq: 
+        freq[num] = 1
         first[num] = i
-
-v = []
-
+    else: 
+        freq[num] += 1
+        
+l = []
 for num in freq:
-    v.append((freq[num], num))  
-
-v.sort(key=lambda x: (-x[0], first[x[1]]))
-
-for count, num in v:
-    for _ in range(count):
-        print(num, end=" ")
+    l.append((-freq[num], first[num], num))
+l.sort()
+for freq, first, num in l: 
+    for _ in range(-freq):
+        print(num, end = " ")
