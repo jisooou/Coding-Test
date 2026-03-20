@@ -1,8 +1,8 @@
 T = int(input())
 for _ in range(T):
-    N = int(input())
-    total = 0
-    while(N > 0):
-        N //= 5
-        total += N
-    print(total)
+    num = int(input())
+    cnt = 0 
+    while (num > 0):
+        num //= 5
+        cnt += num
+    print(cnt)
