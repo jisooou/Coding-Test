@@ -2,6 +2,7 @@ T = int(input())
 for _ in range(T):
     paran = input().strip()
     stack = []
+    is_state = True
     
     for ch in paran: 
         if ch == '(':
@@ -10,10 +11,10 @@ for _ in range(T):
             if stack and stack[-1] == '(':
                 stack.pop()
             else: 
-                stack.append(ch)
+                is_state = False
                 break
             
-    if stack: 
+    if stack or not is_state: 
         print("NO")
     else: 
         print("YES")
