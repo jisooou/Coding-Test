@@ -1,23 +1,30 @@
-import sys 
-
-def balance_world(line: str) -> str: 
-    stack = [] 
-    for ch in line:
-        if ch in '([':
+while True: 
+    stack = []
+    sentence = input()
+    is_state = True
+    
+    if sentence == '.':
+        break
+    
+    for ch in sentence: 
+        if ch == '(':
             stack.append(ch)
         elif ch == ')':
-            if not stack or stack[-1] != '(':
-                return "no"
-            stack.pop()
+            if stack and stack[-1] == '(':
+                stack.pop()
+            else: 
+                is_state = False
+                break
+        elif ch == '[':
+            stack.append(ch)
         elif ch == ']':
-            if not stack or stack[-1] != '[':
-                return "no"
-            stack.pop()
-    return "yes" if not stack else "no"
-
-input = sys.stdin.readline
-while True: 
-    line = input().rstrip()
-    if line == '.':
-        break 
-    print(balance_world(line))
+            if stack and stack[-1] == '[':
+                stack.pop()
+            else: 
+                is_state = False
+                break
+            
+    if stack or not is_state: 
+        print("no")
+    else: 
+        print("yes")
