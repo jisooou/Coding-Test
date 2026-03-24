@@ -15,15 +15,14 @@ for i in range(N):
             virus.append((i,j))
 
 answer = 0
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
             
 for walls in combinations(zero, 3):
     # 배열을 복사해 준다. 
     temp = [row[:] for row in data]
     for x, y in walls: 
         temp[x][y] = 1
-    
-    dx = [-1, 1, 0, 0]
-    dy = [0, 0, -1, 1]
 
     queue = deque(virus)
     while queue: 
