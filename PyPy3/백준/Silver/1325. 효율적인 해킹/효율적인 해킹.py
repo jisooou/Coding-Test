@@ -1,36 +1,35 @@
-from collections import deque
 import sys
+from collections import deque
+input = sys.stdin.readline
 
-input = sys.stdin.readline 
 n, m = map(int, input().split())
 graph = [[] for _ in range(n+1)]
 for _ in range(m):
-    a, b = map(int, input().split())
+    a, b = list(map(int, input().split()))
     graph[b].append(a)
 
 def bfs(start):
-    visited = [False] * (n+1)
     queue = deque([start])
-    visited[start] = True
+    visited = [False] * (n+1)
+    visited[start] = True 
     cnt = 1
+    
     while queue: 
-        now = queue.popleft()
-        for nxt in graph[now]: 
-            if not visited[nxt]:
-                visited[nxt] = True
-                queue.append(nxt)
+        curr_v = queue.popleft()
+        for nxt_v in graph[curr_v]:
+            if not visited[nxt_v]:
+                visited[nxt_v] = True
+                queue.append(nxt_v)
                 cnt += 1
-    return cnt             
+    return cnt
 
-# 최대 값을 찾기 위해 
-max_val = 0 
+max_cnt = 0
 result = []
-
 for i in range(1, n+1):
     val = bfs(i)
-    if val > max_val: 
-        max_val = val 
+    if val > max_cnt: #가장 큰 값이 append가 되고
+        max_cnt = val 
         result = [i]
-    elif val == max_val: 
+    elif val == max_cnt: #그 다음 값이 append가 될 수 있다. 
         result.append(i)
-print(*result)
+print(*result)        
