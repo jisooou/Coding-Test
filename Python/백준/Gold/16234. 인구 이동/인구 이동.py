@@ -16,37 +16,35 @@ def bfs(x, y):
     union = [(x, y)]
     total = board[x][y]
     
-    while queue: 
+    while queue:
         x, y = queue.popleft()
         for i in range(4):
-            nx= x + dx[i]
+            nx = x + dx[i]
             ny = y + dy[i]
-            if 0 <= nx < N and 0 <= ny < N and not visited[nx][ny]:
+            if 0 <= nx < N and 0 <= ny < N and not visited[nx][ny]: 
                 if L <= abs(board[x][y] - board[nx][ny]) <= R:
-                    visited[nx][ny] = True 
+                    visited[nx][ny] = True
                     queue.append((nx, ny))
                     union.append((nx, ny))
                     total += board[nx][ny]
-    return union, total 
-
-day = 0 
-
-while True: 
-    visited = [[False] * N for _ in range(N)]
-    move = False 
+    return union, total
     
+day = 0     
+
+while True:
+    visited = [[False] * N for _ in range(N)]
+    move = False
     for i in range(N):
         for j in range(N):
-            if not visited[i][j]:
+            if not visited[i][j]: 
                 union, total = bfs(i, j)
-                
-                if len(union) > 1:
+                if len(union) > 1: 
                     move = True
                     new_move = total // len(union)
                     for x, y in union: 
                         board[x][y] = new_move
-    if not move: 
-        break 
-        
+                  
+    if not move:
+        break
     day += 1
-print(day)        
+print(day)
