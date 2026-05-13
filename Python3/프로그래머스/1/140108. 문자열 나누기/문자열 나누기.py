@@ -2,12 +2,12 @@ def solution(s):
     answer = 0
     same = 0
     diff = 0
-    first_w = ''
-    for c in s:
+    before_w = ''
+    for char in s:
         if same == 0:
-            first_w = c
             same = 1
-        elif c == first_w:
+            before_w = char
+        elif char == before_w:
             same += 1
         else:
             diff += 1
