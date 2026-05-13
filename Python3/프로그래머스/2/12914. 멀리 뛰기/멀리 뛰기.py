@@ -1,8 +1,7 @@
-#DP 문제 - DP 테이블 만든다.
 def solution(n):
-    dp = [0] * (n+1)
-    dp[0] = 1
-    dp[1] = 1
-    for i in range(2, n+1):
-        dp[i] = (dp[i-1] + dp[i-2]) % 1234567
-    return dp[n]
+    if n < 3:
+        return n
+    a, b = 1, 2
+    for _ in range(3, n+1):
+        a, b = b, (a+b)%1234567
+    return b
