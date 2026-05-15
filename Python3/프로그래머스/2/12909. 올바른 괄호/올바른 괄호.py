@@ -1,17 +1,10 @@
 def solution(s):
     stack = []
     for operand in s:
-        if operand==')':
+        if operand == '(':
+            stack.append(operand)
+        else: # ')'
             if not stack:
                 return False
-            if stack[-1] == '(':
-                stack.pop()
-            else: 
-                stack.append(operand)
-        else: # '('
-            stack.append(operand)
-            
-    if not stack:
-        return True
-    else:
-        return False
+            stack.pop()
+    return not stack
