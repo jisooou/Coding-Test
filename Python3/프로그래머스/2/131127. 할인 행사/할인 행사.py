@@ -1,18 +1,17 @@
 def solution(want, number, discount):
     answer = 0
-    want_dict = {}
+    give_dict = {}
     for i in range(len(want)):
-        want_dict[want[i]] = number[i]
+        give_dict[want[i]] = number[i]
     
     for i in range(len(discount)-9):
-        current = {}
-        for item in discount[i:i+10]:
-            if item in current: 
-                current[item] += 1
+        have_dict = {}
+        for d in discount[i:i+10]:
+            if d in have_dict:
+                have_dict[d] += 1
             else:
-                current[item] = 1
-        
-        if current == want_dict:
+                have_dict[d] = 1
+        if give_dict == have_dict:
             answer += 1
-        
+            
     return answer
