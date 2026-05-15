@@ -1,6 +1,4 @@
-# f-string 사용
-
+import sys
 def solution(s):
-    num_list = list(map(int, s.split()))
-    answer = f"{min(num_list)} {max(num_list)}"
-    return answer
+    s_list = list(map(int, s.split()))
+    return str(min(s_list)) + ' ' + str(max(s_list))
