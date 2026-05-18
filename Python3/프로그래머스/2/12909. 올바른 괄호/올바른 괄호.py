@@ -1,10 +1,14 @@
 def solution(s):
+    answer = True
     stack = []
-    for operand in s:
-        if operand == '(':
-            stack.append(operand)
-        else: # ')'
-            if not stack:
+    for i in s:
+        if i == '(':
+            stack.append(i)
+        else:
+            if stack:
+                stack.pop()
+            else:
                 return False
-            stack.pop()
-    return not stack
+    if stack:
+        return False
+    return True
