@@ -3,7 +3,6 @@ def solution(s, skip, index):
     alpha = 'abcdefghijklmnopqrstuvwxyz'
     for sk in skip:
         alpha = alpha.replace(sk, '')
-    for i in s: 
-        idx = (alpha.index(i)+index)%len(alpha)
-        answer += alpha[idx]
+    for word in s:
+        answer += alpha[(alpha.index(word) + index)%len(alpha)] 
     return answer
