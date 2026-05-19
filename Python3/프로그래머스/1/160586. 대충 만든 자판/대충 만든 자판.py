@@ -4,13 +4,13 @@ def solution(keymap, targets):
     press_alpha = {}
     for k in keymap:
         for idx, ch in enumerate(k):
-            press = idx+1
+            press = idx + 1
             if ch not in press_alpha:
                 press_alpha[ch] = press
             else:
                 press_alpha[ch] = min(press_alpha[ch], press)
                 
-    for t in targets:
+    for t in targets: 
         total = 0
         for ch in t: 
             if ch not in press_alpha:
