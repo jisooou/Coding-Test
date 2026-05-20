@@ -1,18 +1,16 @@
 def solution(want, number, discount):
     answer = 0
-    want_dict = {}
-    for n in range(len(number)):
-        want_dict[want[n]] = number[n]
-    
+    have_dict = {}
+    for w in range(len(want)):
+        have_dict[want[w]] = number[w]
     for d in range(len(discount)-9):
-        have_dict = {}
-        for food in discount[d:d+10]:
-            if food in have_dict:
-                have_dict[food] += 1
+        want_dict = {}
+        for idx in discount[d:d+10]:
+            if idx in want_dict:
+                want_dict[idx] += 1
             else:
-                have_dict[food] = 1
-    
-        if want_dict == have_dict:
-            answer += 1
+                want_dict[idx] = 1
         
+        if have_dict == want_dict:
+            answer += 1
     return answer
