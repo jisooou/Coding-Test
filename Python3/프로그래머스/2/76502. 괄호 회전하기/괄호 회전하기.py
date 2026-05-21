@@ -5,10 +5,11 @@ def is_valid(rotate):
         ')' : '(',
         '}' : '{'
     }
+    
     for operand in rotate:
         if operand in '([{':
             stack.append(operand)
-        else: 
+        else:
             if stack and stack[-1] == pairs[operand]:
                 stack.pop()
             else:
@@ -17,7 +18,7 @@ def is_valid(rotate):
         return True
     else:
         return False
-        
+
 def solution(s):
     cnt = 0
     for i in range(len(s)):
@@ -25,4 +26,4 @@ def solution(s):
         
         if is_valid(rotate):
             cnt += 1
-    return cnt        
+    return cnt
