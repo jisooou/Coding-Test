@@ -1,20 +1,22 @@
 def solution(keymap, targets):
-    answer = []
-    alpha = {}
+    alpha_find = {}
     for k in keymap:
-        for idx, word in enumerate(k):
+        for idx, alpha in enumerate(k):
             press = idx + 1
-            if word in alpha:
-                alpha[word] = min(alpha[word], press)
+            if alpha not in alpha_find:
+                alpha_find[alpha] = press
             else:
-                alpha[word] = press
+                alpha_find[alpha] = min(press, alpha_find[alpha])
     
+    answer = []
     for t in targets:
         total = 0
-        for target_word in t:
-            if target_word not in alpha:
+        for target in t:
+            if target not in alpha_find:
                 total = -1
                 break
-            total += alpha[target_word]
+            else:
+                total += alpha_find[target]
         answer.append(total)
-    return answer    
+    return answer
+            
