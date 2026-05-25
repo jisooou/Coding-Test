@@ -1,10 +1,11 @@
 def solution(ingredient):
     answer = 0
+    order = [1, 2, 3, 1]
     stack = []
-    cnt = 0
     for i in ingredient:
         stack.append(i)
-        if stack[-4:] == [1, 2, 3, 1]:
+        if stack[-4:] == order:
+            answer += 1
             del stack[-4:]
-            cnt += 1
-    return cnt 
+    return answer
+        
