@@ -1,11 +1,6 @@
-#종류가 최소가 되도록
+from collections import Counter
 def solution(k, tangerine):
-    tang_dict = {}
-    for t in tangerine:
-        if t not in tang_dict:
-            tang_dict[t] = 1
-        else:
-            tang_dict[t] += 1
+    tang_dict = Counter(tangerine)
     total = 0
     answer = 0
     tang_cnt = sorted(tang_dict.values(), reverse=True)
