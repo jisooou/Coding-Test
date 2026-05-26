@@ -1,17 +1,17 @@
+#종류가 최소가 되도록
 def solution(k, tangerine):
-    tangerine_cnt = {}
-    for i in tangerine:
-        if i in tangerine_cnt: 
-            tangerine_cnt[i] += 1
-        else: 
-            tangerine_cnt[i] = 1
-    counts = sorted(tangerine_cnt.values(), reverse = True)
-
+    tang_dict = {}
+    for t in tangerine:
+        if t not in tang_dict:
+            tang_dict[t] = 1
+        else:
+            tang_dict[t] += 1
+    total = 0
     answer = 0
-    total = 0 
-    for c in counts: 
+    tang_cnt = sorted(tang_dict.values(), reverse=True)
+    for c in tang_cnt:
         total += c
         answer += 1
-        if total >= k: 
-            break
-    return answer
+        if total >= k:
+            return answer
+            
