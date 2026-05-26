@@ -1,16 +1,24 @@
-def is_valid(rotate):
+def solution(s):
+    cnt = 0
+    for i in range(len(s)):
+        operand = s[i:] + s[:i]
+        
+        if is_valid(operand): 
+            cnt += 1
+    return cnt
+    
+def is_valid(operand):
     stack = []
     pairs = {
         ']' : '[',
-        ')' : '(',
+        ')' : '(', 
         '}' : '{'
     }
-    
-    for operand in rotate:
-        if operand in '([{':
-            stack.append(operand)
+    for o in operand:
+        if o in '[({':
+            stack.append(o)
         else:
-            if stack and stack[-1] == pairs[operand]:
+            if stack and stack[-1] == pairs[o]:
                 stack.pop()
             else:
                 return False
@@ -18,12 +26,3 @@ def is_valid(rotate):
         return True
     else:
         return False
-
-def solution(s):
-    cnt = 0
-    for i in range(len(s)):
-        rotate = s[i:] + s[:i]
-        
-        if is_valid(rotate):
-            cnt += 1
-    return cnt
