@@ -1,18 +1,18 @@
 def solution(topping):
-    cnt = 0
     right = {}
-    for element in topping:
-        if element not in right:
-            right[element] = 1
+    for t in topping:
+        if t not in right:
+            right[t] = 1
         else:
-            right[element] += 1
-    
+            right[t] += 1
+            
+    cnt = 0
     left = set()
-    for element in topping:
-        left.add(element)
-        right[element] -= 1
-        if right[element] == 0:
-            del right[element]
+    for t in topping:
+        left.add(t)
+        right[t] -= 1
+        if right[t] == 0:
+            del right[t]
         
         if len(left) == len(right):
             cnt += 1
