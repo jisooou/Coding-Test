@@ -1,17 +1,17 @@
 from collections import deque
 def solution(priorities, location):
     queue = deque()
-    for idx, p in enumerate(priorities):
-        queue.append((idx, p))
+    for idx, value in enumerate(priorities):
+        queue.append((idx, value))
     
     cnt = 0
-    while queue: 
-        p_idx, p_value = queue.popleft()
-        for idx, p in queue:
-            if p_value < p:
-                queue.append((p_idx ,p_value))
+    while queue:
+        pop_idx, pop_value = queue.popleft()
+        for i, v in queue:
+            if pop_value < v:
+                queue.append((pop_idx, pop_value))
                 break
         else:
             cnt += 1
-            if p_idx == location:
+            if pop_idx == location:
                 return cnt
