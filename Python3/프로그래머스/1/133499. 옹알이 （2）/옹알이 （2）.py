@@ -1,5 +1,5 @@
 def solution(babbling):
-    cnt = 0
+    answer = 0
     able = ['aya', 'ye', 'woo', 'ma']
     for word in babbling:
         for able_word in able:
@@ -7,7 +7,5 @@ def solution(babbling):
                 break
             word = word.replace(able_word, ' ')
         if word.strip() == '':
-            cnt += 1
-    return cnt
-                
-    
+            answer += 1
+    return answer
