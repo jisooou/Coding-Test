@@ -8,7 +8,8 @@ def solution(scoville, K):
         new_score = a + (b*2)
         heapq.heappush(scoville, new_score)
         answer += 1
-    if scoville[0] < K:
+    
+    if scoville[0]<K:
         return -1
     else:
         return answer
