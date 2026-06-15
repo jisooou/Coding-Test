@@ -1,12 +1,12 @@
 def solution(clothes):
-    dict = {}
-    for name, type in clothes:
-        if type not in dict:
-            dict[type] = 1
+    collect = {}
+    for i in clothes:
+        if i[1] not in collect:
+            collect[i[1]] = 1
         else:
-            dict[type] += 1
+            collect[i[1]] += 1
     
     answer = 1
-    for i in dict.values(): 
+    for i in collect.values():
         answer *= (i+1)
     return answer-1
