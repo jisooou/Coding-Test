@@ -1,11 +1,11 @@
 def solution(babbling):
-    answer = 0
-    able = ['aya', 'ye', 'woo', 'ma']
+    cnt = 0
+    able_word = ['aya', 'ye', 'woo', 'ma']
     for word in babbling:
-        for able_word in able:
-            if able_word*2 in word:
+        for aw in able_word:
+            if aw*2 in word:
                 break
-            word = word.replace(able_word, ' ')
+            word = word.replace(aw, ' ')
         if word.strip() == '':
-            answer += 1
-    return answer
+            cnt += 1
+    return cnt
