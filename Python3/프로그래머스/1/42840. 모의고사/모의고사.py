@@ -4,17 +4,17 @@ def solution(answers):
     third = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
     score = [0, 0, 0]
     
-    for idx, num in enumerate(answers):
-        if num == first[idx%len(first)]:
+    for idx, i in enumerate(answers):
+        if i == first[idx%len(first)]:
             score[0] += 1
-        if num == second[idx%len(second)]:
+        if i == second[idx%len(second)]:
             score[1] += 1
-        if num == third[idx%len(third)]:
+        if i == third[idx%len(third)]:
             score[2] += 1
-    
-    answer = [] 
+
+    result = []
     max_score = max(score)
-    for s in range(3):
-        if score[s] == max_score:
-            answer.append(s+1)
-    return answer
+    for i in range(len(score)):
+        if score[i] == max_score:
+            result.append(i+1)
+    return result
