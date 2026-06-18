@@ -1,23 +1,22 @@
-import math
 from itertools import permutations
+import math
 
 def is_prime(num):
     if num < 2: 
         return False
-    
-    for j in range(2, int(math.sqrt(num))+1):
-        if num % j == 0:
+    for i in range(2, int(math.sqrt(num))+1):
+        if num % i == 0:
             return False
     return True
-    
-def solution(numbers):
-    permu_set = set()
+
+def solution(numbers): 
+    collect = set()
     for length in range(1, len(numbers)+1):
-        for p in permutations(numbers, length):
-            permu_set.add(int(''.join(p)))
+        for i in permutations(numbers, length): 
+            collect.add(int(''.join(i)))
     
     cnt = 0
-    for i in permu_set:
-        if is_prime(i):
+    for j in collect:
+        if is_prime(j):
             cnt += 1
     return cnt
