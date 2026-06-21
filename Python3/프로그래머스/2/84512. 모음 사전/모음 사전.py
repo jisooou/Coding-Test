@@ -1,15 +1,13 @@
 def solution(word):
-    vowels = 'AEIOU'
-    words = []
-    
+    vowel = 'AEIOU'
+    answer = []
     def dfs(current):
         if len(current) > 5:
-            return
+            return 
         if current:
-            words.append(current)
-        
-        for v in vowels:
+            answer.append(current)
+        for v in vowel:
             dfs(current + v)
         
     dfs("")
-    return words.index(word)+1
+    return answer.index(word)+1
