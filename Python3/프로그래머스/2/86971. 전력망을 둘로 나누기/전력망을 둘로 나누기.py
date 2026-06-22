@@ -1,17 +1,17 @@
 from collections import deque
 def solution(n, wires):
     answer = n
-    for remove_a, remove_b in wires:
+    for cut_x, cut_y in wires:
         graph = [[] for _ in range(n+1)]
         for a, b in wires:
-            if remove_a == a and remove_b == b:
+            if cut_x == a and cut_y == b:
                 continue
             graph[a].append(b)
             graph[b].append(a)
-            
+        
         queue = deque()
-        visited = [False] * (n+1)
         queue.append(1)
+        visited = [False] * (n+1)
         visited[1] = True
         cnt = 1
         
@@ -22,6 +22,6 @@ def solution(n, wires):
                     visited[nxt_node] = True
                     queue.append(nxt_node)
                     cnt += 1
-        rest = n-cnt
-        answer = min(answer, abs(cnt-rest))
+        remain = n - cnt
+        answer = min(answer, abs(cnt-remain))
     return answer
