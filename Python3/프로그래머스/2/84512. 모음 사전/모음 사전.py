@@ -1,17 +1,12 @@
 def solution(word):
     vowel = 'AEIOU'
-    cnt = 0          
+    lst = []
     def dfs(current):
-        nonlocal cnt
         if len(current) > 5:
             return 
         if current:
-            cnt += 1
-            if current == word:
-                return cnt 
+            lst.append(current)
         for v in vowel:
-            result = dfs(current + v)
-            if result:
-                return result
-        
-    return dfs("")
+            dfs(current+v)
+    dfs("")
+    return lst.index(word)+1
