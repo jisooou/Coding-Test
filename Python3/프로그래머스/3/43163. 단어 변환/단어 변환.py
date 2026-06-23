@@ -20,5 +20,4 @@ def solution(begin, target, words):
             if diff == 1 and not visited[nxt_word]:
                 visited[nxt_word] = True
                 queue.append((words[nxt_word], cnt+1))
-        
-   
+    return 0
