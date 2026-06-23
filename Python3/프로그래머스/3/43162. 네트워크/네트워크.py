@@ -1,17 +1,14 @@
-from collections import deque
+# 최단거리를 구하는 문제가 아니다
 def solution(n, computers):
-    visited = [False] * n
-    answer = 0 
-    for node in range(n):
-        if not visited[node]:
+    visited = [False] * n 
+    def dfs(computer):
+        visited[computer] = True
+        for node in range(n):
+            if computers[computer][node] == 1 and not visited[node]:
+                dfs(node)
+    answer = 0
+    for i in range(n):
+        if not visited[i]:
+            dfs(i)
             answer += 1
-            
-            queue = deque()
-            queue.append(node)
-            while queue:
-                current_node = queue.popleft()
-                for connect_node in range(n):
-                    if not visited[connect_node] and computers[current_node][connect_node] == 1:
-                        visited[connect_node] = True
-                        queue.append(connect_node)
-    return answer
+    return answer 
