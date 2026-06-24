@@ -1,15 +1,12 @@
 def solution(num):
-    answer = 0
-    while True:
-        if num == 1:
-            break
-        if answer == 500:
-            answer = -1
-            break
-            
-        if num % 2 == 0: 
-            num //= 2
-        elif num % 2 == 1:
-            num = (num*3) + 1
-        answer += 1
-    return answer
+    def dfs(number, cnt):
+        if number == 1:
+            return cnt
+        if cnt == 500:
+            return -1
+        
+        if number % 2 == 0:
+            return dfs(number//2, cnt+1)
+        else:
+            return dfs(number*3+1, cnt+1)
+    return dfs(num, 0)
