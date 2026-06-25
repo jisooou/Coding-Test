@@ -3,8 +3,7 @@ def solution(n):
     def hanoi(num, start, end, mid):
         if num == 1:
             answer.append([start, end])
-            return 
-        
+            return
         hanoi(num-1, start, mid, end)
         answer.append([start, end])
         hanoi(num-1, mid, end, start)
