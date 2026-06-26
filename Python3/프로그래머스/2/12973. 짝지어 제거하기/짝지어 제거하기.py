@@ -1,12 +1,16 @@
-# 스택 push, pop으로 푼다.
-# 처음부터 stack에 값을 다 넣는다고 생각하지 말고, 순회하면서 push/pop을 한다.
-
 def solution(s):
+    #다없어지면 1, 아니면 0 
     stack = []
-    for ch in s: 
-        if stack and stack[-1] == ch: 
-            stack.pop()
-        else:
-            stack.append(ch)
-    return 0 if stack else 1
-        
+    for word in s:
+        if not stack:
+            stack.append(word)
+        else: 
+            if stack and stack[-1]==word:
+                stack.pop()
+            else:
+                stack.append(word)
+    
+    if not stack:
+        return 1
+    else:
+        return 0
