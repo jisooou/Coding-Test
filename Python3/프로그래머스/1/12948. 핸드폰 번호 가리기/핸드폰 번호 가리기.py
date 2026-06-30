@@ -1,4 +1,2 @@
-def solution(phone_number):
-    star = "*"*(len(phone_number)-4)
-    number = phone_number[-4:]
-    return star + number
+def solution(phone_number):    
+    return '*' * (len(phone_number)-4) + phone_number[-4:]
