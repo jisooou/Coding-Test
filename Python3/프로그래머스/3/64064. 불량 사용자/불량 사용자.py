@@ -1,5 +1,7 @@
 def solution(user_id, banned_id):
     def is_match(user, ban):
+        if len(user) != len(ban):
+            return False
         for x, y in zip(user, ban):
             if y == '*':
                 continue
@@ -7,28 +9,24 @@ def solution(user_id, banned_id):
                 return False
         return True
     
-    candidate = []
+    total = []
     for ban in banned_id:
         temp = []
         for user in user_id:
-            if len(user) != len(ban):
-                continue
             if is_match(user, ban):
                 temp.append(user)
-        candidate.append(temp)
+        total.append(temp)
     
     answer = set()
     def dfs(idx, select):
-        if idx == len(candidate):
+        if idx == len(total):
             answer.add(tuple(sorted(select)))
             return 
-        
-        for user in candidate[idx]:
+        for user in total[idx]:
             if user not in select:
                 select.add(user)
                 dfs(idx+1, select)
                 select.remove(user)
-            
     
     dfs(0, set())
     return len(answer)
