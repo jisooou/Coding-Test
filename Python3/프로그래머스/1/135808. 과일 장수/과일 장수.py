@@ -1,6 +1,7 @@
 def solution(k, m, score):
+    sort_score = sorted(score, reverse=True)
     answer = 0
-    score.sort(reverse=True)
-    for i in range(m-1, len(score), m):
-        answer += (score[i]*m)
+    for i in range(len(score)//m):
+        answer += sort_score[(i+1)*m-1]*m
     return answer
+        
