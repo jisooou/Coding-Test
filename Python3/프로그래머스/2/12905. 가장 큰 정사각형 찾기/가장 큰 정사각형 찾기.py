@@ -3,16 +3,16 @@ def solution(board):
     column = len(board[0])
     answer = 0
     
-    for x in range(row):
-        for y in range(column):
-            if board[x][y] == 1:
-                if x==0 or y==0:
+    for i in range(row):
+        for j in range(column):
+            if board[i][j] == 1:
+                if i==0 or j==0:
                     answer = max(answer, 1)
                 else:
-                    board[x][y] = min(
-                        board[x-1][y],
-                        board[x][y-1],
-                        board[x-1][y-1]
+                    board[i][j] = min(
+                        board[i-1][j],
+                        board[i][j-1],
+                        board[i-1][j-1]
                     )+1
-                    answer = max(answer, board[x][y])
+                    answer = max(answer, board[i][j])
     return answer*answer
