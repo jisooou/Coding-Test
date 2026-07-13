@@ -1,4 +1,4 @@
 def solution(nums):
-    collect = set(nums) 
-    can_len = len(nums)//2
-    return min(len(collect), can_len)
+    select = len(nums) // 2
+    num_set = len(set(nums))
+    return min(select, num_set)
