@@ -1,10 +1,10 @@
 # [level 1] 문자열 내 마음대로 정렬하기 - 12915 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12915?language=python3) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12915) 
 
 ### 성능 요약
 
-메모리: 11.5 MB, 시간: 0.04 ms
+메모리: 11.5 MB, 시간: 0.01 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 07월 03일 12:55:45
+2026년 07월 13일 14:13:42
 
 ### 문제 설명
 
