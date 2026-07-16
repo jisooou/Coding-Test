@@ -4,7 +4,7 @@ def solution(k, dungeons):
     def dfs(current, cnt):
         nonlocal answer
         answer = max(answer, cnt)
-        for i in range(len(dungeons)):
+        for i in range(len(dungeons)): 
             need = dungeons[i][0]
             used = dungeons[i][1]
             if not visited[i] and current >= need:
