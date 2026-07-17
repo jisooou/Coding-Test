@@ -3,10 +3,9 @@ def solution(word):
     words = []
     def dfs(current):
         if len(current) > 5:
-            return
-        if current: 
+            return 
+        if current:
             words.append(current)
-            
         for v in vowel:
             dfs(current+v)
     dfs('')
