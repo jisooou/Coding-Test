@@ -1,12 +1,11 @@
 def solution(s):
-    transform = 0
     zero_cnt = 0
+    change_cnt = 0
     while s != '1':
-        origin_s = len(s)
+        zero_cnt += s.count('0')
         s = s.replace('0', '')
-        replace_s = len(s)
-        zero_cnt += origin_s - replace_s
+        current_len = len(s) 
+        s = str(bin(current_len)[2:])
+        change_cnt += 1
+    return [change_cnt, zero_cnt]
     
-        s = bin(len(s))[2:]
-        transform += 1
-    return [transform, zero_cnt]
