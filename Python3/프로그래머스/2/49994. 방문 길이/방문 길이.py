@@ -1,19 +1,19 @@
 def solution(dirs):
-    direction = {
-        'U':(0, 1),
-        'D':(0, -1),
-        'R':(1, 0),
-        'L':(-1, 0),
+    direct = {
+        'U': (0, 1),
+        'D': (0, -1),
+        'R': (1, 0),
+        'L': (-1, 0)
     }
-    x, y = 0, 0
-    visit = set()
-    for d in dirs:
-        nx, ny = direction[d]
-        dx = nx + x
-        dy = ny + y
-        if dx<-5 or dx>5 or dy<-5 or dy>5:
+    currentX, currentY = 0, 0
+    visited = set()
+    for dir in dirs:
+        nxtX, nxtY = direct[dir]
+        newX = nxtX + currentX
+        newY = nxtY + currentY
+        if newX>5 or newX<-5 or newY>5 or newY<-5:
             continue
-        visit.add((x, y, dx, dy))
-        visit.add((dx, dy, x, y))
-        x, y = dx, dy
-    return len(visit)//2
+        visited.add((currentX, currentY, newX, newY))
+        visited.add((newX, newY, currentX, currentY))
+        currentX, currentY = newX, newY
+    return len(visited)//2
