@@ -5,15 +5,15 @@ def solution(dirs):
         'R': (1, 0),
         'L': (-1, 0)
     }
-    currentX, currentY = 0, 0
-    visited = set()
-    for dir in dirs:
-        nxtX, nxtY = direct[dir]
-        newX = nxtX + currentX
-        newY = nxtY + currentY
-        if newX>5 or newX<-5 or newY>5 or newY<-5:
+    cx, cy = 0, 0
+    result = set()
+    for d in dirs: 
+        dx, dy = direct[d]
+        nx = cx + dx
+        ny = cy + dy
+        if nx>5 or nx<-5 or ny>5 or ny<-5:
             continue
-        visited.add((currentX, currentY, newX, newY))
-        visited.add((newX, newY, currentX, currentY))
-        currentX, currentY = newX, newY
-    return len(visited)//2
+        result.add((cx, cy, nx, ny))
+        result.add((nx, ny, cx, cy))
+        cx, cy = nx, ny
+    return len(result)//2
