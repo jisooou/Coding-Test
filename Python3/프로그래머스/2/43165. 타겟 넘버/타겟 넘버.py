@@ -1,12 +1,14 @@
 def solution(numbers, target):
-    answer = 0
-    def dfs(location, total):
-        nonlocal answer
-        if location == len(numbers):
+    cnt = 0
+    def dfs(index, total):
+        nonlocal cnt
+        if index == len(numbers):
             if total == target:
-                answer += 1
-            return 
-        dfs(location+1, total+numbers[location])
-        dfs(location+1, total+(-numbers[location]))
+                cnt += 1
+            return
+            
+        dfs(index+1, total+numbers[index])
+        dfs(index+1, total-numbers[index])
+            
     dfs(0, 0)
-    return answer
+    return cnt
