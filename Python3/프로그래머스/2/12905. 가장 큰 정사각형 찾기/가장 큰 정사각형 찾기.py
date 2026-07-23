@@ -6,7 +6,7 @@ def solution(board):
     for i in range(row):
         for j in range(column):
             if board[i][j] == 1:
-                if i==0 or j==0:
+                if i == 0 or j == 0:
                     answer = max(answer, 1)
                 else:
                     board[i][j] = min(
@@ -15,4 +15,4 @@ def solution(board):
                         board[i-1][j-1]
                     )+1
                     answer = max(answer, board[i][j])
-    return answer*answer
+    return answer * answer
