@@ -1,20 +1,17 @@
 def solution(genres, plays):
     total = {}
     song = {}
-    
-    for idx, genre in enumerate(genres):
-        play = plays[idx]
-        if genre not in total:
-            total[genre] = 0
+    for idx, (genre, play) in enumerate(zip(genres, plays)):
+        total[genre] = total.get(genre, 0) + play
+        if genre not in song:
             song[genre] = []
-        total[genre] += play
         song[genre].append((play, idx))
-    sorted_genre = sorted(total.keys(), key=lambda x: total[x], reverse=True)
-    
-    answer = []
-    for genre in sorted_genre:
-        sorted_song = sorted(song[genre], key=lambda x: (-x[0], x[1]))
+        
+    genre_sort = sorted(total.keys(), key=lambda x: total[x], reverse=True)    
 
-        for play, idx in sorted_song[:2]:
+    answer = []
+    for genre in genre_sort:
+        song[genre].sort(key=lambda x: (-x[0], x[1]))
+        for play, idx in song[genre][:2]:
             answer.append(idx)
     return answer
