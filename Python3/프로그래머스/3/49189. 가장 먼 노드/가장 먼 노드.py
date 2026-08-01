@@ -9,11 +9,11 @@ def solution(n, edge):
     distance[1] = 0
     queue = deque()
     queue.append(1)
-    while queue: 
+    while queue:
         current = queue.popleft()
         for nxt in graph[current]:
             if distance[nxt] == -1:
                 distance[nxt] = distance[current]+1
                 queue.append(nxt)
-    max_answer = max(distance)
-    return distance.count(max_answer)
+    max_distance = max(distance)
+    return distance.count(max_distance)
