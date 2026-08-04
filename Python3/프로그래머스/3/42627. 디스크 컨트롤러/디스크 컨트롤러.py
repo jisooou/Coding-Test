@@ -2,20 +2,21 @@ import heapq
 def solution(jobs):
     jobs.sort()
     heap = []
-    complete = 0
-    job_idx = 0
     current_time = 0
-    total = 0
+    current_idx = 0
+    complete = 0
+    answer = 0
     while complete < len(jobs):
-        while job_idx < len(jobs) and jobs[job_idx][0] <= current_time:
-            start, duration = jobs[job_idx]
-            heapq.heappush(heap, (duration ,start))
-            job_idx += 1
+        while current_idx < len(jobs) and jobs[current_idx][0] <= current_time:
+            start_time, duration = jobs[current_idx]
+            heapq.heappush(heap, (duration, start_time))
+            current_idx += 1
+            
         if heap:
-            duration, start = heapq.heappop(heap)
+            duration, start_time = heapq.heappop(heap)
             current_time += duration
-            total += current_time - start
+            answer += current_time - start_time
             complete += 1
         else:
-            current_time = jobs[job_idx][0]
-    return total // len(jobs)
+            current_time = jobs[current_idx][0]
+    return answer // len(jobs)
