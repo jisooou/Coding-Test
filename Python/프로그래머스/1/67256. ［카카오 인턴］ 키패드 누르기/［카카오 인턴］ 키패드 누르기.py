@@ -13,26 +13,23 @@ def solution(numbers, hand):
         0:(3,1),
         '#':(3,2)
     }
-    
     left = '*'
     right = '#'
     result = ''
-    
     for number in numbers:
-        if number in [1, 4, 7]:
+        if number in [1,4,7]:
             result += 'L'
             left = number
         elif number in [3, 6, 9]:
             result += 'R'
             right = number
         else:
+            current_x, current_y = pad[number]
             left_x, left_y = pad[left]
             right_x, right_y = pad[right]
-            target_x, target_y = pad[number]
             
-            left_distance = abs(left_x-target_x)+abs(left_y-target_y)
-            right_distance = abs(right_x-target_x)+abs(right_y-target_y)
-            
+            left_distance = abs(current_x-left_x)+abs(current_y-left_y)
+            right_distance = abs(current_x-right_x)+abs(current_y-right_y)
             if left_distance < right_distance:
                 result += 'L'
                 left = number
