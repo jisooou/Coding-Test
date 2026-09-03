@@ -1,14 +1,15 @@
 def solution(n, computers):
-    visited = [False] * n 
-    def dfs(computer):
-        visited[computer] = True
-        for node in range(n):
-            if computers[computer][node] == 1 and not visited[node]:
-                dfs(node)
-                
+    visited = [False]*n
     answer = 0
-    for computer in range(n):
-        if not visited[computer]:
-            dfs(computer)
+    
+    def dfs(current):
+        visited[current] = True
+        for nxt in range(n):
+            if computers[current][nxt] and not visited[nxt]:
+                dfs(nxt)
+                    
+    for i in range(n):
+        if not visited[i]:
+            dfs(i)
             answer += 1
     return answer
